@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: #050B1A;
+    color: #E8F0FF;
+    font-family: 'Exo 2', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #030710; }
+  ::-webkit-scrollbar-thumb { background: #00C2FF; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #00FF87; }
+}
+
+@layer components {
+  /* ── Glass morphism ───────────────────────── */
+  .glass {
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+  }
+
+  .glass-hover {
+    @apply glass;
+    transition: background 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(0, 194, 255, 0.055);
+    border-color: rgba(0, 194, 255, 0.28);
+    box-shadow: 0 20px 50px rgba(0, 194, 255, 0.1), 0 0 0 1px rgba(0,194,255,0.08);
+    transform: translateY(-4px);
+  }
+
+  /* ── Neon text ────────────────────────────── */
+  .neon-blue  { color: #00C2FF; text-shadow: 0 0 24px rgba(0,194,255,0.7); }
+  .neon-green { color: #00FF87; text-shadow: 0 0 20px rgba(0,255,135,0.6); }
+  .neon-purple{ color: #7B5BF2; text-shadow: 0 0 20px rgba(123,91,242,0.6); }
+
+  /* ── Buttons ──────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00C2FF 0%, #0088CC 100%);
+    color: #fff;
+    padding: 13px 34px;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(0,194,255,0.45);
+    transition: box-shadow 0.3s ease, transform 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(0,194,255,0.75), 0 0 70px rgba(0,194,255,0.25);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #00C2FF;
+    padding: 13px 34px;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(0,194,255,0.45);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease, transform 0.25s ease;
+    text-decoration: none;
+  }
+  .btn-outline:hover {
+    background: rgba(0,194,255,0.08);
+    border-color: #00C2FF;
+    box-shadow: 0 0 20px rgba(0,194,255,0.3);
+    transform: translateY(-2px);
+  }
+
+  /* ── Section chrome ───────────────────────── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: #00C2FF;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: #E8F0FF;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+  }
+
+  .gradient-rule {
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00C2FF 40%, #00FF87 60%, transparent 100%);
+    max-width: 180px;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── Backgrounds ──────────────────────────── */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0,194,255,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,194,255,0.028) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-radial-blue  { background: radial-gradient(circle at 20% 40%, rgba(0,194,255,0.07) 0%, transparent 55%); }
+  .bg-radial-green { background: radial-gradient(circle at 80% 60%, rgba(0,255,135,0.05) 0%, transparent 55%); }
+  .bg-radial-purple{ background: radial-gradient(circle at 50% 20%, rgba(123,91,242,0.05) 0%, transparent 55%); }
+
+  /* ── Timeline ─────────────────────────────── */
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #00C2FF;
+    box-shadow: 0 0 0 4px rgba(0,194,255,0.15), 0 0 16px rgba(0,194,255,0.5);
+    flex-shrink: 0;
+  }
+}
