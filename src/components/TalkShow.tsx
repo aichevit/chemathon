@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mic2, Building2, FlaskConical, Quote } from 'lucide-react';
-
+import img1 from '../assests/naveen.webp';
+import img2 from '../assests/senthil.webp';
 const SPEAKERS = [
   {
     name: 'Naveen V S',
@@ -8,7 +9,7 @@ const SPEAKERS = [
     org: 'CSIR – NAL',
     orgLong: 'Council of Scientific & Industrial Research — National Aerospace Laboratories',
     domain: 'Advanced Research & Development',
-    icon: FlaskConical,
+    icon: img1,
     accent: '0,194,255',
     bio: 'Bringing deep expertise from the frontier of scientific research, Naveen offers a rare window into how fundamental Chemical Engineering principles are applied to solve complex R&D challenges at one of India\'s premier research institutions.',
     tag: 'Research Domain',
@@ -19,7 +20,7 @@ const SPEAKERS = [
     org: 'Dow Chemicals',
     orgLong: 'Dow Chemicals International Pvt. Ltd.',
     domain: 'Large-Scale Process Implementation',
-    icon: Building2,
+    icon: img2,
     accent: '0,255,135',
     bio: 'With hands-on experience driving complex engineering projects from concept to execution, Senthil brings the industrial perspective — how engineers think, design, and build under real constraints at one of the world\'s largest chemical companies.',
     tag: 'Industry Domain',
@@ -77,13 +78,8 @@ export function TalkShow() {
                 {/* avatar placeholder */}
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: `linear-gradient(135deg, rgba(${sp.accent},0.2), rgba(${sp.accent},0.05))`,
-                    border: `1px solid rgba(${sp.accent}, 0.3)`,
-                    boxShadow: `0 0 24px rgba(${sp.accent},0.18)`,
-                  }}
                 >
-                  <sp.icon size={28} style={{ color: `rgb(${sp.accent})` }} strokeWidth={1.5} />
+                  <img src={sp.icon} alt={sp.name} className="h-12 w-12 rounded-full object-cover ring-2 ring-offset-2" />
                 </div>
 
                 <div className="flex-1 min-w-0">

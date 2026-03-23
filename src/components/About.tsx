@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { Users, Lightbulb, Trophy, Globe } from 'lucide-react';
+import { Users, Lightbulb, Mic, CircleStar} from 'lucide-react';
+
 
 const STATS = [
-  { icon: Users,     value: '100+', label: 'Participants' },
-  { icon: Globe,     value: 'Pan-India', label: 'Reach' },
-  { icon: Lightbulb,value: '36 hrs', label: 'Hackathon' },
-  { icon: Trophy,    value: 'Edition 7', label: 'Legacy' },
+  { icon: CircleStar,     value: 'Flagship Event', label: 'AIChE-VIT' },
+  { icon: Lightbulb, value: '36 hrs', label: 'Hackathon' },
+  { icon: Users,     value: '300+', label: 'Participants' },
+  { icon: Mic,    value: 'Exclusive Talkshow', label: 'Legacy' },
 ];
 
 const fade = {
@@ -33,8 +34,8 @@ export function About() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="section-label mb-3">[ About ]</p>
-          <h2 className="section-title">Chem-A-Thon 7.0</h2>
+          <p className="section-label mb-3"></p>
+          <h2 className="section-title">[ About ]</h2>
           <div className="gradient-rule" />
         </motion.div>
 
@@ -55,7 +56,7 @@ export function About() {
                 style={{ background: 'linear-gradient(to bottom, #00C2FF, #7B5BF2)' }}
               />
               <h3 className="font-orbitron font-bold text-lg text-chem-text tracking-wide">
-                Initiate. Innovate. Invent.
+                Chem-A-Thon 7.0 
               </h3>
             </div>
             <p className="font-exo text-chem-muted leading-relaxed text-[15px] mb-4">

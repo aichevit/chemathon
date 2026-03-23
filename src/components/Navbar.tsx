@@ -48,7 +48,7 @@ export function Navbar() {
                 <span className="font-orbitron text-[13px] font-black neon-blue">7.0</span>
               </div>
               <div className="font-mono text-[9px] text-chem-muted tracking-[0.22em] uppercase mt-0.5">
-                AIChE &middot; VIT
+              INNOVATE - INVENT - INSPIRE
               </div>
             </div>
           </a>

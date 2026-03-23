@@ -42,33 +42,7 @@ export function Sponsors() {
           </p>
         </motion.div>
 
-        {/* marquee strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-          className="overflow-hidden mb-16 relative"
-        >
-          {/* fade edges */}
-          <div className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to right, #040A18, transparent)' }} />
-          <div className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to left, #040A18, transparent)' }} />
-
-          <div className="flex animate-marquee gap-6 w-max">
-            {LOOP.map((sp, i) => (
-              <div
-                key={i}
-                className="glass flex-shrink-0 px-7 py-4 flex flex-col items-center justify-center text-center gap-1 min-w-[100px]"
-                style={{ border: '1px solid rgba(255,255,255,0.06)' }}
-              >
-                <span className="font-orbitron font-bold text-[13px] text-chem-text">{sp.name}</span>
-                <span className="font-mono text-[9px] text-chem-muted uppercase tracking-[0.18em]">{sp.tier}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+      
 
         {/* tier grid */}
         <div className="space-y-8 mb-16">

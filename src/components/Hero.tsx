@@ -162,7 +162,7 @@ export function Hero() {
         >
           <Zap size={11} style={{ color: '#00FF87' }} />
           <span className="font-mono text-[10px] md:text-[11px] text-chem-muted tracking-[0.22em] uppercase">
-            AIChE VIT &nbsp;&middot;&nbsp; Flagship Event &nbsp;&middot;&nbsp; Edition 7.0
+            AIChE-VIT Proudly Presents
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-chem-green animate-pulse-glow" />
         </motion.div>
@@ -242,19 +242,8 @@ export function Hero() {
           transition={{ duration: 1, delay: 1.1 }}
           className="mt-11 flex flex-wrap justify-center gap-x-8 gap-y-3"
         >
-          {[
-            { dot: '#00FF87', text: '36-Hour Hackathon' },
-            { dot: '#00C2FF', text: 'VIT Vellore' },
-            { dot: '#7B5BF2', text: 'All Universities Welcome' },
-          ].map(({ dot, text }) => (
-            <span key={text} className="flex items-center gap-2 font-exo text-sm text-chem-muted/60">
-              <span
-                className="w-1.5 h-1.5 rounded-full animate-pulse-glow"
-                style={{ background: dot }}
-              />
-              {text}
-            </span>
-          ))}
+          {/*  { dot: '#7B5BF2', text: 'All Universities Welcome' }, */}
+          
         </motion.div>
       </div>
 

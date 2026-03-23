@@ -2,6 +2,12 @@ import { FlaskConical, Instagram, Globe, Linkedin, Phone, Mail, ExternalLink } f
 
 const CONTACTS = [
   {
+    name: 'Dr. Monash P',
+    role: 'Faculty Coordinator',
+    phone: '+91 99447 43067',
+    color: '#7B5BF2',
+  },
+  {
     name: 'Mr. Ameya Shukla',
     role: 'Chairperson',
     phone: '+91 73851 22063',
@@ -13,12 +19,13 @@ const CONTACTS = [
     phone: '+91 88485 74031',
     color: '#00FF87',
   },
+
 ];
 
 const SOCIALS = [
   {
     label: 'Instagram',
-    href: 'https://instagram.com/aichevit',
+    href: 'https://instagram.com/aiche_vit',
     handle: '@aichevit',
     icon: Instagram,
     color: '#E1306C',
@@ -32,7 +39,7 @@ const SOCIALS = [
   },
   {
     label: 'LinkedIn',
-    href: '#',
+    href: 'https://linkedin.com/company/aiche-vit',
     handle: 'AIChE VIT',
     icon: Linkedin,
     color: '#0A66C2',

@@ -92,12 +92,6 @@ function Card({
       </ul>
 
       <div>
-        <button
-          className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest transition-colors"
-          style={{ color: `rgb(${accent})` }}
-        >
-          Learn More <ChevronRight size={13} />
-        </button>
       </div>
     </motion.div>
   );
