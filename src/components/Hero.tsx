@@ -193,6 +193,15 @@ export function Hero() {
         </motion.div>
 
         {/* tagline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.42 }}
+          className="font-exo font-light text-chem-muted uppercase tracking-[0.4em] mt-1 mb-11"
+          style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.2rem)' }}
+        >
+          Initiate &ensp;·&ensp; Innovate &ensp;·&ensp; Invent
+        </motion.p>
 
         {/* countdown */}
         <motion.div
