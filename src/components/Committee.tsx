@@ -1,21 +1,6 @@
 import { motion } from 'framer-motion';
 import { Crown, Star, Shield, Users, Microscope } from 'lucide-react';
 
-/* ════════════════════════════════════════════════════════════════════════
-   DATA
-   ════════════════════════════════════════════════════════════════════════
-   HOW TO ADD PHOTOS
-   ─────────────────
-   1. Drop image files into  /public/committee/
-      e.g.  /public/committee/viswanathan.jpg
-
-   2. Set the `image` field to the public-relative path:
-      image: '/committee/viswanathan.jpg'
-
-   3. Leave `image: ''` for anyone whose photo isn't ready yet —
-      the initials avatar will show automatically as a fallback.
-   ════════════════════════════════════════════════════════════════════════ */
-
 const SECTIONS = [
   {
     tier: 'Honourable Patron',
@@ -28,7 +13,7 @@ const SECTIONS = [
         name:  'Dr. G. Viswanathan',
         role:  'Founder & Chancellor',
         org:   'VIT',
-        image: '/patron/vishwa.jpg', // e.g. '/committee/viswanathan.jpg'
+        image: '/patron/vishwa.jpg',
       },
     ],
   },
@@ -55,6 +40,7 @@ const SECTIONS = [
       { name: 'Dr. Partha Sharathi Mallick', role: 'Pro-Vice Chancellor', org: 'VIT', image: '/patron/partha.jpg' },
       { name: 'Dr. Sandhya Pentareddy',      role: 'Executive Director',  org: 'VIT', image: '/patron/sandhya.jpg' },
       { name: 'Dr. T. Jayabarathi',          role: 'Registrar',           org: 'VIT', image: '/patron/jayabarathi.jpg' },
+      {name: 'Ms. Kadhambari S. Viswanathan', role: 'Assistant Vice President', org: 'VIT', image: '/patron/kadhambarig.jpeg' },
     ],
   },
   {
@@ -83,9 +69,6 @@ const SECTIONS = [
   },
 ];
 
-/* ════════════════════════════════════════════════════════════════════════
-   AVATAR  — shows photo when `image` is set, otherwise shows initials
-   ════════════════════════════════════════════════════════════════════════ */
 function Avatar({
   name,
   image,

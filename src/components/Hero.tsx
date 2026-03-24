@@ -1,12 +1,11 @@
-import { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Zap } from 'lucide-react';
+import { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Zap, X, UserPlus, LogIn, ExternalLink, BedDouble, Info } from 'lucide-react';
 import { useCountdown } from '../hooks/useCountdown';
 
-// !! UPDATE THIS to your actual event date !!
 const EVENT_DATE = new Date('2026-03-28T09:00:00');
 
-/* ── Molecular network canvas ─────────────────────────────────────────── */
+/* ── Molecular canvas ─────────────────────────────────────────────────── */
 function MolecularCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -44,15 +43,11 @@ function MolecularCanvas() {
 
     const tick = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // move
       for (const p of particles) {
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height)  p.vy *= -1;
       }
-
-      // edges
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -68,8 +63,6 @@ function MolecularCanvas() {
           }
         }
       }
-
-      // dots
       for (const p of particles) {
         ctx.save();
         ctx.beginPath();
@@ -80,7 +73,6 @@ function MolecularCanvas() {
         ctx.fill();
         ctx.restore();
       }
-
       raf = requestAnimationFrame(tick);
     };
     tick();
@@ -101,10 +93,7 @@ function Unit({ val, label }: { val: number; label: string }) {
     <div className="flex flex-col items-center gap-2">
       <div className="glass relative overflow-hidden px-4 py-3 md:px-7 md:py-4 min-w-[64px] md:min-w-[96px] text-center border border-[rgba(0,194,255,0.14)]">
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,194,255,0.1)] to-transparent pointer-events-none" />
-        {/* scan line */}
-        <div
-          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-[rgba(0,194,255,0.6)] to-transparent animate-scanline opacity-40 pointer-events-none"
-        />
+        <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-[rgba(0,194,255,0.6)] to-transparent animate-scanline opacity-40 pointer-events-none" />
         <span
           className="relative font-mono text-[2rem] md:text-[3rem] font-bold leading-none"
           style={{ color: '#00C2FF', textShadow: '0 0 22px rgba(0,194,255,0.75)' }}
@@ -119,27 +108,219 @@ function Unit({ val, label }: { val: number; label: string }) {
   );
 }
 
+/* ── Registration Modal ───────────────────────────────────────────────── */
+function RegisterModal({ onClose }: { onClose: () => void }) {
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  // Lock body scroll while modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return (
+    /* Backdrop */
+    <motion.div
+      key="modal-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.22 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      style={{ background: 'rgba(3,7,16,0.82)', backdropFilter: 'blur(10px)' }}
+      onClick={onClose}
+    >
+      {/* Panel — stop click propagation so it doesn't close when clicking inside */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.93, y: 24 }}
+        animate={{ opacity: 1, scale: 1,    y: 0  }}
+        exit={{ opacity: 0,    scale: 0.93, y: 24 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        onClick={e => e.stopPropagation()}
+        className="relative w-full max-w-md rounded-2xl overflow-hidden"
+        style={{
+          background:   'rgba(8,16,34,0.98)',
+          border:       '1px solid rgba(0,194,255,0.2)',
+          boxShadow:    '0 0 60px rgba(0,194,255,0.12), 0 30px 80px rgba(0,0,0,0.6)',
+        }}
+      >
+        {/* top glow bar */}
+        <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, #00C2FF, #00FF87, transparent)' }} />
+
+        {/* close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-chem-muted/50 hover:text-chem-blue transition-colors focus:outline-none"
+          aria-label="Close"
+        >
+          <X size={18} />
+        </button>
+
+        <div className="px-7 pt-7 pb-8">
+
+          {/* heading */}
+          <div className="mb-6">
+            <p className="font-mono text-[10px] text-chem-blue uppercase tracking-[0.25em] mb-2">
+              [ Registration ]
+            </p>
+            <h2 className="font-orbitron font-black text-xl text-chem-text tracking-wide leading-tight">
+              Chem-A-Thon 7.0
+            </h2>
+            <p className="font-exo text-sm text-chem-muted mt-1">
+              28<sup>th</sup> – 30<sup>th</sup> March, 2026 &nbsp;·&nbsp; VIT Vellore
+            </p>
+          </div>
+
+          {/* steps */}
+          <div
+            className="rounded-xl p-4 mb-6 space-y-2"
+            style={{ background: 'rgba(0,194,255,0.04)', border: '1px solid rgba(0,194,255,0.1)' }}
+          >
+            <p className="font-mono text-[10px] text-chem-blue/70 uppercase tracking-widest mb-3">
+              How to register
+            </p>
+            {[
+              'Create a new account or log in if you already have one.',
+              'Search for and select "Chem-A-Thon 7.0" from the events list.',
+              'Fill in your team and participant details.',
+              'Complete the payment to confirm your spot.',
+            ].map((step, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span
+                  className="font-orbitron font-bold text-[10px] flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
+                  style={{ background: 'rgba(0,194,255,0.15)', color: '#00C2FF' }}
+                >
+                  {i + 1}
+                </span>
+                <p className="font-exo text-[13px] text-chem-muted/80 leading-snug">{step}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col gap-3 mb-5">
+            <a
+              href="https://events.vit.ac.in/Users/newUser"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 px-5 py-4 rounded-xl transition-all duration-250 group"
+              style={{
+                background:  'linear-gradient(135deg, rgba(0,194,255,0.14) 0%, rgba(0,194,255,0.06) 100%)',
+                border:      '1px solid rgba(0,194,255,0.28)',
+                boxShadow:   '0 0 20px rgba(0,194,255,0.08)',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 28px rgba(0,194,255,0.22)')}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 20px rgba(0,194,255,0.08)')}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(0,194,255,0.15)', border: '1px solid rgba(0,194,255,0.25)' }}
+                >
+                  <UserPlus size={16} style={{ color: '#00C2FF' }} strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="font-orbitron font-bold text-[12px] text-chem-text">New User</p>
+                  <p className="font-exo text-[11px] text-chem-muted/60">Create your account</p>
+                </div>
+              </div>
+              <ExternalLink size={13} className="text-chem-muted/40 group-hover:text-chem-blue transition-colors" />
+            </a>
+
+            <a
+              href="https://events.vit.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 px-5 py-4 rounded-xl transition-all duration-250 group"
+              style={{
+                background:  'rgba(255,255,255,0.03)',
+                border:      '1px solid rgba(255,255,255,0.08)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.border      = '1px solid rgba(0,255,135,0.25)';
+                e.currentTarget.style.background  = 'rgba(0,255,135,0.04)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.border      = '1px solid rgba(255,255,255,0.08)';
+                e.currentTarget.style.background  = 'rgba(255,255,255,0.03)';
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(0,255,135,0.1)', border: '1px solid rgba(0,255,135,0.2)' }}
+                >
+                  <LogIn size={16} style={{ color: '#00FF87' }} strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="font-orbitron font-bold text-[12px] text-chem-text">Already Registered?</p>
+                  <p className="font-exo text-[11px] text-chem-muted/60">Log in to your account</p>
+                </div>
+              </div>
+              <ExternalLink size={13} className="text-chem-muted/40 group-hover:text-chem-green transition-colors" />
+            </a>
+          </div>
+
+          {/* accommodation note */}
+          <div
+            className="rounded-xl p-4 flex gap-3"
+            style={{
+              background: 'rgba(245,158,11,0.05)',
+              border:     '1px solid rgba(245,158,11,0.18)',
+            }}
+          >
+            <div className="flex-shrink-0 mt-0.5">
+              <BedDouble size={15} style={{ color: '#F59E0B' }} strokeWidth={2} />
+            </div>
+            <div>
+              <p className="font-orbitron font-bold text-[11px] text-[#F59E0B] mb-1 tracking-wide">
+                Accommodation (External Students)
+              </p>
+              <p className="font-exo text-[12px] text-chem-muted/70 leading-relaxed">
+                If accommodation is required, please select{' '}
+                <span className="text-[#F59E0B] font-semibold">"Chem-A-Thon 7.0 – Accommodation"</span>{' '}
+                as a separate event during registration.
+              </p>
+            </div>
+          </div>
+
+          {/* fine print */}
+          <div className="mt-4 flex items-start gap-2">
+            <Info size={11} className="text-chem-muted/30 flex-shrink-0 mt-0.5" />
+            <p className="font-mono text-[10px] text-chem-muted/30 leading-relaxed">
+              Registration is handled via the official VIT Events portal. Make sure to complete payment to confirm participation.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /* ── Hero ─────────────────────────────────────────────────────────────── */
 export function Hero() {
   const cd = useCountdown(EVENT_DATE);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <section
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* layered background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030710] via-[#050B1A] to-[#071222]" />
       <div className="absolute inset-0 bg-grid opacity-40" />
       <div className="absolute inset-0 bg-radial-blue pointer-events-none" />
       <div className="absolute inset-0 bg-radial-purple pointer-events-none" />
 
-      {/* molecular canvas */}
       <div className="absolute inset-0 opacity-55">
         <MolecularCanvas />
       </div>
 
-      {/* soft centre glow */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -153,7 +334,6 @@ export function Hero() {
       {/* ── content ── */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-24">
 
-        {/* eyebrow badge */}
         <motion.div
           initial={{ opacity: 0, y: -14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -167,7 +347,6 @@ export function Hero() {
           <span className="w-1.5 h-1.5 rounded-full bg-chem-green animate-pulse-glow" />
         </motion.div>
 
-        {/* title */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -192,7 +371,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* tagline */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -203,7 +381,6 @@ export function Hero() {
           Initiate &ensp;·&ensp; Innovate &ensp;·&ensp; Invent
         </motion.p>
 
-        {/* countdown */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -224,30 +401,23 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a href="#register" className="btn-primary">Register Now</a>
-          <a href="#events"   className="btn-outline">Explore Event</a>
-        </motion.div>
-
-        {/* stat pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="mt-11 flex flex-wrap justify-center gap-x-8 gap-y-3"
-        >
-          {/*  { dot: '#7B5BF2', text: 'All Universities Welcome' }, */}
-          
+          {/* ← opens modal instead of navigating directly */}
+          <button
+            onClick={() => setShowModal(true)}
+            className="btn-primary"
+          >
+            Register Now
+          </button>
+          <a href="#events" className="btn-outline">Explore Event</a>
         </motion.div>
       </div>
 
-      {/* scroll cue */}
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}
@@ -258,6 +428,11 @@ export function Hero() {
       >
         <ChevronDown size={28} strokeWidth={1.5} />
       </motion.a>
+
+      {/* ── Registration modal ── */}
+      <AnimatePresence>
+        {showModal && <RegisterModal onClose={() => setShowModal(false)} />}
+      </AnimatePresence>
     </section>
   );
 }

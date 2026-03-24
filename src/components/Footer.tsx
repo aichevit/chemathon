@@ -58,7 +58,6 @@ const NAV_LINKS = [
 export function Footer() {
   return (
     <footer id="contact" className="relative overflow-hidden">
-      {/* top gradient rule */}
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, #00C2FF, #00FF87, transparent)' }} />
 
       <div className="relative bg-[#030710]">
@@ -67,7 +66,6 @@ export function Footer() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid md:grid-cols-3 gap-12 mb-14">
 
-            {/* brand column */}
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-5">
                 <div
@@ -90,7 +88,6 @@ export function Footer() {
                 real-world solutions.
               </p>
 
-              {/* social icons */}
               <div className="flex gap-3">
                 {SOCIALS.map(s => (
                   <a
@@ -119,7 +116,6 @@ export function Footer() {
               </div>
             </div>
 
-            {/* quick links */}
             <div>
               <h4 className="font-orbitron font-bold text-xs text-chem-text tracking-[0.2em] uppercase mb-5">
                 Quick Links
@@ -141,7 +137,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* contact */}
             <div>
               <h4 className="font-orbitron font-bold text-xs text-chem-text tracking-[0.2em] uppercase mb-5">
                 Contact Us
@@ -166,7 +161,6 @@ export function Footer() {
                 ))}
               </div>
 
-              {/* web/email row */}
               <div className="mt-4 space-y-2">
                 <a
                   href="https://aichevit.in"
@@ -186,7 +180,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* bottom bar */}
           <div
             className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-center"
             style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}

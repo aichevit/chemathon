@@ -1,0 +1,12 @@
+# robots.txt — Chem-A-Thon 7.0 | aichevit.in
+
+User-agent: *
+Allow: /
+
+# Block crawlers from any build/config artifacts if exposed
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /dist/
+
+# Sitemap (update with your actual domain once deployed)
+Sitemap: https://chemathon.aichevit.in/sitemap.xml

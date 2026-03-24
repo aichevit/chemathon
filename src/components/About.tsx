@@ -26,7 +26,6 @@ export function About() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +40,7 @@ export function About() {
 
         {/* two-col */}
         <div className="grid md:grid-cols-2 gap-10 mb-16 items-start">
-          {/* 7.0 */}
+
           <motion.div
             custom={0}
             variants={fade}
@@ -73,7 +72,6 @@ export function About() {
             </p>
           </motion.div>
 
-          {/* 6.0 legacy */}
           <motion.div
             custom={1}
             variants={fade}
