@@ -117,7 +117,7 @@ export function EventsSection() {
           <h2 className="section-title">Events at Chem-A-Thon 7.0</h2>
           <div className="gradient-rule" />
           <p className="font-exo text-chem-muted mt-5 max-w-2xl mx-auto text-[15px]">
-            A 36-hour journey of fabrication, logic, and professional networking — bringing together
+            A 36-hour journey of fabrication, logic, and professional networking, bringing together
             the brightest minds in chemical engineering to solve real-world industrial problems.
           </p>
         </motion.div>

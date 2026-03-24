@@ -59,7 +59,7 @@ export function About() {
               </h3>
             </div>
             <p className="font-exo text-chem-muted leading-relaxed text-[15px] mb-4">
-              Chem-A-Thon is the flagship event of AIChE VIT — an annual competition welcoming
+              Chem-A-Thon is the flagship event of AIChE VIT, an annual competition welcoming
               undergraduate students from universities around the world. It is a <span className="text-chem-blue font-semibold">36-hour hackathon</span> where
               students tackle problem statements spanning various fields of Chemical Engineering
               and must design working models.

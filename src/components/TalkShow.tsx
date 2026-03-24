@@ -58,7 +58,7 @@ export function TalkShow() {
           className="text-center font-exo text-chem-muted max-w-2xl mx-auto mb-14 text-[15px] leading-relaxed"
         >
           A dual-guest session bringing together perspectives from advanced research and
-          large-scale industry — exploring how Chemical Engineering principles translate into
+          large-scale industry, exploring how Chemical Engineering principles translate into
           innovation, design, and execution under real constraints.
         </motion.p>
 
