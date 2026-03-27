@@ -35,12 +35,12 @@ const SECTIONS = [
     accent: '123,91,242',
     accentHex: '#7B5BF2',
     single: false,
-    members: [
+    members: [       
+      { name: 'Dr. Sandhya Pentareddy',      role: 'Executive Director',  org: 'VIT', image: '/patron/sandhya.jpg' },
+      { name: 'Ms. Kadhambari S. Viswanathan', role: 'Assistant Vice President', org: 'VIT', image: '/patron/kadhambarig.jpeg' },
       { name: 'Dr. V S Kanchana Bhaaskaran', role: 'Vice Chancellor',    org: 'VIT', image: '/patron/kanchana.jpg' },
       { name: 'Dr. Partha Sharathi Mallick', role: 'Pro-Vice Chancellor', org: 'VIT', image: '/patron/partha.jpg' },
-      { name: 'Dr. Sandhya Pentareddy',      role: 'Executive Director',  org: 'VIT', image: '/patron/sandhya.jpg' },
       { name: 'Dr. T. Jayabarathi',          role: 'Registrar',           org: 'VIT', image: '/patron/jayabarathi.jpg' },
-      {name: 'Ms. Kadhambari S. Viswanathan', role: 'Assistant Vice President', org: 'VIT', image: '/patron/kadhambarig.jpeg' },
     ],
   },
   {

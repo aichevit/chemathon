@@ -12,7 +12,7 @@ const DAYS = [
     phases: [
       { icon: Flag,        title: 'Inauguration Ceremony',         desc: 'Official opening of Chem-A-Thon 7.0 at Ambedkar Auditorium.',                              venue: 'Ambedkar Auditorium' },
       { icon: Car,         title: 'The Tritrack Challenge',        desc: 'Chem-E-Car teams take to the tracks — Normal, Ramp, and Obstacle.',                         venue: "Foody's 2" },
-      { icon: Mic2,        title: 'Talk Show',                     desc: 'Dual-guest expert session with industry leaders from CSIR-NAL and Dow Chemicals.',           venue: 'Ambedkar Auditorium' },
+      { icon: Mic2,        title:  'Collision Factor',                     desc: 'Dual-guest talkshow with industry leaders from CSIR-NAL and Dow Chemicals.',           venue: 'Ambedkar Auditorium' },
       { icon: Cpu,         title: 'Model Development — Phase 1',   desc: 'Hackathon kicks off. Teams begin fabricating working models using supplied inventories.',    venue: 'SMV Labs' },
     ],
   },

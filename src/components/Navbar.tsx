@@ -93,6 +93,9 @@ export function Navbar() {
               background: 'rgba(0,194,255,0.06)',
               border:     '1px solid rgba(0,194,255,0.2)',
             }}
+          ><button
+            onClick={() => window.open('https://aichevit.in', '_blank')}
+            className="flex items-center gap-3 group select-none focus:outline-none"
           >
             <div
               className="w-30 h-10 rounded-s overflow-hidden flex-shrink-0"
@@ -108,6 +111,7 @@ export function Navbar() {
                 VIT
               </div>
             </div>
+            </button>
           </div>
 
           {/* ── Hamburger ── */}
@@ -178,11 +182,14 @@ export function Navbar() {
                     background: 'rgba(0,194,255,0.06)',
                     border:     '1px solid rgba(0,194,255,0.15)',
                   }}
-                >
+                > <button
+            onClick={() => window.open('https://aichevit.in', '_blank')}
+            className="flex items-center gap-3 group select-none focus:outline-none"
+          >
             <div
               className="w-30 h-10 rounded-s overflow-hidden flex-shrink-0"
               style={{ boxShadow: '0 0 10px rgba(0,194,255,0.35)' ,background: 'rgb(255,255,255)'}}
-            >
+            >         
                     <img src={image2} alt="AIChE VIT" className="w-full h-full object-cover" />
                   </div>
                   <div>
@@ -192,8 +199,11 @@ export function Navbar() {
                     <div className="font-mono text-[9px] text-chem-muted/60 tracking-[0.2em] uppercase mt-0.5">
                       Vellore Institute of Technology
                     </div>
+
                   </div>
+                  </button>
                 </div>
+                
               </div>
             </motion.div>
           </>
