@@ -86,16 +86,13 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* ── AIChE-VIT branding pill (desktop) ── */}
+          {/* ── AIChE-VIT branding pil ── */}
           <div
             className="hidden md:flex items-center gap-2.5 px-4 py-2 rounded-full"
             style={{
               background: 'rgba(0,194,255,0.06)',
               border:     '1px solid rgba(0,194,255,0.2)',
             }}
-          ><button
-            onClick={() => window.open('https://aichevit.in', '_blank')}
-            className="flex items-center gap-3 group select-none focus:outline-none"
           >
             <div
               className="w-30 h-10 rounded-s overflow-hidden flex-shrink-0"
@@ -111,7 +108,6 @@ export function Navbar() {
                 VIT
               </div>
             </div>
-            </button>
           </div>
 
           {/* ── Hamburger ── */}
