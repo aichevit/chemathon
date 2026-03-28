@@ -103,7 +103,7 @@ export function Sponsors() {
             Partner with AIChE VIT to connect with the next generation of Chemical Engineering
             innovators. Reach out to discuss sponsorship opportunities for Chem-A-Thon 7.0.
           </p>
-          <a href="mailto:aichevit@vit.ac.in" className="btn-primary inline-flex">
+          <a href="mailto:aiche@vit.ac.in" className="btn-primary inline-flex">
             Get in Touch
           </a>
         </motion.div>

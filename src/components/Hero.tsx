@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Zap, X, UserPlus, LogIn, ExternalLink, BedDouble, Info } from 'lucide-react';
 import { useCountdown } from '../hooks/useCountdown';
 
-const EVENT_DATE = new Date('2026-03-28T09:00:00');
+const EVENT_DATE = new Date('2026-03-28T14:00:00');
 
 /* ── Molecular canvas ─────────────────────────────────────────────────── */
 function MolecularCanvas() {

@@ -86,7 +86,7 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* ── AIChE-VIT branding pil ── */}
+          {/* ── AIChE-VIT branding pill () ── */}
           <div
             className="hidden md:flex items-center gap-2.5 px-4 py-2 rounded-full"
             style={{
